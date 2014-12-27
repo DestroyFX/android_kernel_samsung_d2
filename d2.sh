@@ -2,7 +2,7 @@
 
 TOOLCHAIN="/home/brett/Desktop/toolchains/LinaroGCC-4.9.1/bin/arm-eabi-"
 STRIP="/home/brett/Desktop/toolchains/LinaroGCC-4.9.1/bin/arm-eabi-strip"
-OUTDIR="/home/brett/D2/out"
+OUTDIR="/home/brett/android_kernel_samsung_d2/out"
 BUILD="build"
 CONFIG="cyanogen_d2_defconfig"
 KERNEL_DIR="/home/brett/D2"
