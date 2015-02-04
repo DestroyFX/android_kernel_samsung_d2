@@ -5,7 +5,7 @@ STRIP="/home/brett/Desktop/toolchains/LinaroGCC-4.9.1/bin/arm-eabi-strip"
 OUTDIR="/home/brett/android_kernel_samsung_d2/out"
 BUILD="build"
 CONFIG="cyanogen_d2_defconfig"
-KERNEL_DIR="/home/brett/D2"
+KERNEL_DIR="/home/brett/android_kernel_samsung_d2"
 CURRENTDATE=$(date +"%m-%d")
 
 
@@ -36,14 +36,14 @@ echo "Initial Build..."
 echo "Building Shift D2 Kernel..."
 		cd ${KERNEL_DIR}
 		make -j8 ARCH=arm CROSS_COMPILE=${TOOLCHAIN}
-		cp arch/arm/boot/zImage ${OUTDIR}
-		#cd ${BUILD}
-		#echo "Compressing ramdisk..."
+		cp arch/arm/boot/zImage ${BUILD}
+		cd ${BUILD}
+		echo "Compressing ramdisk..."
 		# Make boot.img
-		#./mkbootimg --kernel zImage --ramdisk ramdisk.cpio.lzma --board smdk4x12 --base 0x10000000 --pagesize 2048 --ramdiskaddr 0x11000000 -o boot.img
-		#cp boot.img ${OUTDIR}
-		#cd ${OUTDIR}
-		#echo "Creating Shift CWM kernel zip..."
-		#zip -r Shift-3.9.zip ./ -x *.zip *.gitignore
+		./mkbootimg --kernel zImage --ramdisk ramdisk.cpio.lzma --board smdk4x12 --base 0x10000000 --pagesize 2048 --ramdiskaddr 0x11000000 -o boot.img
+		cp boot.img ${OUTDIR}
+		cd ${OUTDIR}
+		echo "Creating Shift D2 kernel zip..."
+		zip -r Shift-LP-2.2.zip ./ -x *.zip *.gitignore
 
 echo "Done!"
